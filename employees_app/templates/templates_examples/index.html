@@ -1,0 +1,68 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% load departments_tags %}
+{% load int_filters %}
+{% load string_filters %}
+
+<h1>{{ title }}</h1>
+<h1>{{ title|lower }}</h1>
+<h1>{{ title|capfirst }}</h1>
+
+{#CUSTOM FILTERS#}
+<h1>{{ title|capitalize }}</h1>  -> Capitalize
+<h1>{{ number_1|increase_by:1000 }}</h1>  -> Increase by
+
+<h1>{{ description }} -> original</h1>
+<h1>{{ description|truncatewords:7 }} -> truncatewords:7</h1>
+<h1>{{ description|truncatechars:7 }} -> truncatechars:7</h1>
+{{ employees }}
+<hr>
+{{ employees|join:',' }}
+<hr>
+{{ department_names|join:',' }}
+<hr>
+
+<div>
+    {% if number_1 < 200 %}
+        {{ number_1 }} is less than 200
+    {% elif number_1 == 200 %}
+        {{ number_1 }} is 200
+    {% else %}
+        {{ number_1 }} is greater than 200
+    {% endif %}
+</div>
+<hr>
+
+<div>
+    {% for num in numbers %}
+ <div>
+    {% if num < 200 %}
+        {{ num }} is less than 200
+    {% elif num == 200 %}
+        {{ num }} is 200
+    {% else %}
+        {{ num }} is greater than 200
+    {% endif %}
+ </div>
+    {% endfor %}
+
+</div>
+<hr>
+{% for employee in employees %}
+    {% ifchanged employee.department.name %}
+        <li><---></li>
+    {% endifchanged %}
+<div>{{ employee.first_name }} {{ employee.last_name }}</div>
+    <div></div>
+   (<i>{{ employee.get_job_title_t_display }}</i> in <b>{{ employee.department.name }}</b>)
+{% endfor %}
+<div></div>
+{{ csrf_token }}
+
+
+{#CUTOM TAG#}
+<div>
+    <strong>{% departments_list %}</strong>
+</div>
+
+{% endblock %}

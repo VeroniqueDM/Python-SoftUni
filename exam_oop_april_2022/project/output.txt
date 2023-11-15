@@ -1,0 +1,12 @@
+None
+Successfully added: Peter, Lilly
+Winner: Lilly
+Successfully added:
+Lilly sustained successfully with water.
+Player Peter does not have enough stamina.
+Player: Peter, 15, 0, True
+Player: Lilly, 12, 82.5, True
+Player: Peter, 15, 37, True
+Player: Lilly, 12, 98.5, True
+Food: cheese, 25
+Food: apple, 22

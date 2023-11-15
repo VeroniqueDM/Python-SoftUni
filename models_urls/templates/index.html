@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{#{% load  %}#}
+{#<h1>It works</h1>#}
+{#<h2>The number is {{ number }}</h2>#}
+{#<li><a href="{% url 'go to home' %}">GO TO HOME</a></li>#}
+{#<li><a href="{% url 'templates index' %}">GO TO TEMPLATES</a></li>#}
+    <h1> The Employees App!</h1>
+
+    <h2>Bound(Django) form</h2>
+
+    <form action="{% url 'create employee' %}"> {# Mandatory #}
+        {{ employee_form }}
+    <button>Save</button> {# Mandatory #}
+    </form>
+    <div>
+
+    </div>
+
+    <h2>Unbound (Pure HTML)</h2>
+    <form action="">
+    <input type="text" required>
+    <input type="number" required>
+    <input type="email" required>
+    <input type="range" required>
+    <select>
+        <option>One</option>
+        <option>Two</option>
+        <option>Three</option>
+    </select>
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="radio">
+    <input type="radio">
+    <input type="radio">
+    </form>
+<ul>
+    {% for number in numbers %}
+        <li>Number {{ number }}</li>
+    {% endfor %}
+    <li>Fish</li>
+    <li>Beef</li>
+    <li>Pork</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,20 @@
+from project.space_station import SpaceStation
+
+space_station = SpaceStation()
+
+print(space_station.add_astronaut('Biologist', 'George'))
+print(space_station.add_astronaut('Geodesist', 'Peter'))
+print(space_station.add_astronaut('Meteorologist', 'Lara'))
+print(space_station.add_planet('Earth', 'cola, water, bread, mouse, mirror, image, fuel, love, ideas, stones, candle, mug, table, chair, soda, coffee, tea, fish, cat, dog'))
+print(space_station.add_planet('Mars', 'cola, water, bread'))
+print(space_station.retire_astronaut('Lara'))
+print(space_station.astronaut_repository.astronauts)
+print(space_station.planet_repository.planets)
+print([astronaut.oxygen for astronaut in space_station.astronaut_repository.astronauts])
+print(space_station.recharge_oxygen())
+print([astronaut.oxygen for astronaut in space_station.astronaut_repository.astronauts])
+print(space_station.send_on_mission('Mars'))
+print([astronaut.oxygen for astronaut in space_station.astronaut_repository.astronauts])
+print(space_station.send_on_mission('Earth'))
+print([astronaut.oxygen for astronaut in space_station.astronaut_repository.astronauts])
+print(space_station.report())
